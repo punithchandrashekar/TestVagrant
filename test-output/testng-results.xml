@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="61994" started-at="2018-05-19T06:35:32Z" finished-at="2018-05-19T06:36:34Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="61994" started-at="2018-05-19T06:35:32Z" finished-at="2018-05-19T06:36:34Z">
+      <class name="com.testvagrant.FlightBookingTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testvagrant.FlightBookingTest@6767c1fc]" name="setUp" is-config="true" duration-ms="7413" started-at="2018-05-19T12:05:32Z" finished-at="2018-05-19T12:05:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testThatResultsAppearForAOneWayJourney()[pri:0, instance:com.testvagrant.FlightBookingTest@6767c1fc]" name="testThatResultsAppearForAOneWayJourney" duration-ms="52369" started-at="2018-05-19T12:05:40Z" finished-at="2018-05-19T12:06:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testThatResultsAppearForAOneWayJourney -->
+        <test-method status="PASS" signature="cleanDrivers()[pri:0, instance:com.testvagrant.FlightBookingTest@6767c1fc]" name="cleanDrivers" is-config="true" duration-ms="2167" started-at="2018-05-19T12:06:32Z" finished-at="2018-05-19T12:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanDrivers -->
+      </class> <!-- com.testvagrant.FlightBookingTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
