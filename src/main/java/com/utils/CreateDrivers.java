@@ -3,8 +3,11 @@ package com.utils;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -13,6 +16,8 @@ import com.sun.jna.Platform;
 public class CreateDrivers {
 
 	public WebDriver driver;
+	public WebDriverWait wait;
+	public ResusableFunctions resusableFunctions;
 
 	// ** Runs before each class. To initialize the drivers before running the
 	// test case
@@ -25,10 +30,16 @@ public class CreateDrivers {
 		options.addArguments("--disable-extensions");
 		options.addArguments("--disable-infobars");
 		driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, 20);
+		resusableFunctions = new ResusableFunctions(driver);
 		
 	}
+	
 
+	// ** Runs after each class. To quit the drivers before running the
+	// test case
 	@AfterClass
 	public void cleanDrivers() {
 		if (driver != null) {
