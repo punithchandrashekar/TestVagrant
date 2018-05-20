@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite">
+	<!-- Test Suite -->
+
+	<test name="TestVagrant">
+		<classes>
+			<class name="com.testvagrant.FlightBookingTest">
+				<methods>
+					<include name="testThatResultsAppearForAOneWayJourney" />
+				</methods>
+			</class>
+
+			<class name="com.testvagrant.HotelBookingTest">
+				<methods>
+					<include name="shouldBeAbleToSearchForHotels" />
+				</methods>
+			</class>
+			<class name="com.testvagrant.SignInTest">
+				<methods>
+					<include name="shouldThrowAnErrorIfSignInDetailsAreMissing" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<!-- Test -->
+</suite>

@@ -26,4 +26,7 @@ public class HotelBooking_PageFactory {
 
 	@FindBy(id = "travellersOnhome")
 	public WebElement travellerSelection;
+	
+	@FindBy(xpath = "//*[text()='Search for hotels']")
+	public WebElement lowestPriceSection;
 }

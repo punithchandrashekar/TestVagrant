@@ -7,19 +7,22 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.utils.CreateDrivers;
+import com.utils.ResusableFunctions;
+
+import java.io.IOException;
 import java.util.List;
 
 public class FlightBookingTest extends CreateDrivers {
 
 	@Test
-	public void testThatResultsAppearForAOneWayJourney() {
+	public void testThatResultsAppearForAOneWayJourney() throws IOException {
 
 		driver.get("https://www.cleartrip.com/");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("OneWay")));
 		driver.findElement(By.id("OneWay")).click();
 		driver.findElement(By.id("FromTag")).clear();
 		driver.findElement(By.id("FromTag")).sendKeys("Bangalore");
-
+		ResusableFunctions.saveScreenshot("1_EnteredFromLocation", driver);
 		// wait for the auto complete options to appear for the origin
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ui-id-1")));
 		List<WebElement> originOptions = driver.findElement(By.id("ui-id-1")).findElements(By.tagName("li"));
@@ -27,7 +30,7 @@ public class FlightBookingTest extends CreateDrivers {
 
 		driver.findElement(By.id("ToTag")).clear();
 		driver.findElement(By.id("ToTag")).sendKeys("Delhi");
-
+		ResusableFunctions.saveScreenshot("2_EnteredToLocation", driver);
 		// wait for the auto complete options to appear for the destination
 		// select the first item from the destination auto complete list
 		List<WebElement> destinationOptions = driver.findElement(By.id("ui-id-2")).findElements(By.tagName("li"));
@@ -41,18 +44,14 @@ public class FlightBookingTest extends CreateDrivers {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("searchSummary")));
 		Assert.assertTrue(resusableFunctions.isElementPresent(By.className("searchSummary")));
 		System.out.println("Search Results are displayed");
-
+		ResusableFunctions.saveScreenshot("3_SearchResults", driver);
 	}
-//** Wait until is better to use, than thread.sleep
-	/*private void waitFor(int durationInMilliSeconds) {
-		try {
-			Thread.sleep(durationInMilliSeconds);
-		} catch (InterruptedException e) {
-			e.printStackTrace(); // To change body of catch statement use File |
-									// Settings | File Templates.
-		}
-	}
-*/
-
+	// ** Wait until is better to use, than thread.sleep
+	/*
+	 * private void waitFor(int durationInMilliSeconds) { try {
+	 * Thread.sleep(durationInMilliSeconds); } catch (InterruptedException e) {
+	 * e.printStackTrace(); // To change body of catch statement use File | //
+	 * Settings | File Templates. } }
+	 */
 
 }
